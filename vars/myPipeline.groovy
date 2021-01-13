@@ -11,7 +11,7 @@ pipeline {
        stage('checkout'){
            steps{
             // Get some code from a GitHub repository
-            gitCheckout(branch:"main",url:'https://github.com/srini0508/Jenkins-shared-library_demo.git')
+            gitCheckout(branch: pipelineParams.branch, url:pipelineParams.url)
 	   }
        }
       stage('Compile') {
