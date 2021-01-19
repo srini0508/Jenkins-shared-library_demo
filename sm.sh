@@ -216,4 +216,4 @@ fi
 
 create_bash_version_file $version_bash_file $VERSION1
 echo $VERSION1
-export $VERSION1
+export VERSION1
