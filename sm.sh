@@ -165,9 +165,10 @@ echo "Reading current version from $version_input"
 case ${version_input} in
   git )
     old_version=$(get_semantic_version_from_git)
+    old_version=$oldversion
     ;;
 esac
-echo "Current version is $old_version"
+echo "Current version is $oldversion"
 if [ -z "$version_message" ]
 then
   case ${version_input} in
