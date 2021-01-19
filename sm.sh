@@ -62,7 +62,6 @@ set_semantic_version_to_git () {
   fi
   git tag -a "${tag_version}" -m "${tag_message}"
   echo "dffdf ${tag_version} "
-  #git tag -l
   git push origin  "${tag_version}"
 }
 
@@ -217,3 +216,4 @@ fi
 create_bash_version_file $version_bash_file $VERSION1
 echo $VERSION1
 export VERSION1
+cat version_env.sh
