@@ -96,9 +96,7 @@ create_go_version_file() {
   local version_text=$2
   mkPath $1
   cat > $file_path <<EOF
-package version
-// This package is auto generated please don't edit manually
-const Version string = "$VERSION1"
+ "$VERSION1"
 EOF
 }
 
