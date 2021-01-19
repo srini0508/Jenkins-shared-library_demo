@@ -18,7 +18,7 @@ pipeline {
          steps {
             // bat for windows and sh for linux
             //bat "mvn clean compile"
-            sh "mvn clean compile"
+            sh "mvn clean package"
             echo "Compile Stage"
          }
             post{
