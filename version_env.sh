@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # This package is auto generated please don't edit manually
-export VERSION="v2.0.9"
+export VERSION="v5.0.1"
