@@ -215,6 +215,4 @@ fi
 
 create_bash_version_file $version_bash_file $VERSION1
 echo $VERSION1
-git add .
-git commit -m "version files chnaged"
-git push origin
+
