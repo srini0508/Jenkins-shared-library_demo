@@ -61,8 +61,8 @@ set_semantic_version_to_git () {
         tag_message="Release for version ${NEW_VERSION}"
   fi
   git tag -a "${tag_version}" -m "${tag_message}"
-  git tag -l
-  git push origin  "${tag_version}"
+  #git tag -l
+  #git push origin  "${tag_version}"
 }
 
 get_increment_semantic_type_from_git() {
