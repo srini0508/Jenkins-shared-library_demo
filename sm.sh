@@ -185,7 +185,7 @@ then
   esac
 fi
 
-new_version=$VERSION
+echo $VERSION1
 echo "Incrementing version due to $version_increment_type"
 new_version=$(get_incremented_semantic_version $version_increment_type $old_version)
 new_version=$VERSION1
