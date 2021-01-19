@@ -97,7 +97,7 @@ create_go_version_file() {
   cat > $file_path <<EOF
 package version
 // This package is auto generated please don't edit manually
-const Version string = "$version_text"
+const Version string = "$VERSION1"
 EOF
 }
 
@@ -184,11 +184,10 @@ then
       ;;
   esac
 fi
-echo "printing version1"
-echo $VERSION1
+
 echo "Incrementing version due to $version_increment_type"
 new_version=$(get_incremented_semantic_version $version_increment_type $old_version)
-new_version=$VERSION1
+VERSION1=$new_version
 echo "New version will be $new_version with message: $version_message"
 
 case ${version_output} in
@@ -202,17 +201,19 @@ then
   echo "Create new version file $version_file for $version_file_language"
   case ${version_file_language} in
     go )
-      create_go_version_file $version_file $new_version
+      create_go_version_file $version_file $VERSION1
       ;;
     text )
-      create_text_version_file $version_file $new_version
+      create_text_version_file $version_file $VERSION1
       ;;
     bash )
-      create_bash_version_file $version_file $new_version
+      create_bash_version_file $version_file $VERSION1
       ;;
   esac
 fi
 
-create_bash_version_file $version_bash_file $new_version
-echo $new_version
-
+create_bash_version_file $version_bash_file $VERSION1
+echo $VERSION1
+git add .
+git commit -m "version files chnaged"
+git push origin
