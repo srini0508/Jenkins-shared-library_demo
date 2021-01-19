@@ -3,7 +3,7 @@
 version_input="git"
 version_output="git"
 version_increment_type=""
-version_prefix="dev-"
+version_prefix="v"
 version_file_language="go"
 version_file="./version_info"
 version_message=""
@@ -61,7 +61,7 @@ set_semantic_version_to_git () {
         tag_message="Release for version ${NEW_VERSION}"
   fi
   git tag -a "${tag_version}" -m "${tag_message}"
-  
+  git push origin "${tag_version}"
 }
 
 get_increment_semantic_type_from_git() {
