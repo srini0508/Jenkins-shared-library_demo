@@ -216,4 +216,4 @@ fi
 create_bash_version_file $version_bash_file $VERSION1
 echo $VERSION1
 export VERSION1
-git push https://github.com/srini0508/Jenkins-shared-library_demo.git HEAD:main "${VERSION1}"
+
