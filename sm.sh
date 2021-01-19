@@ -8,6 +8,8 @@ version_file_language="go"
 version_file="./version_info"
 version_message=""
 version_bash_file="./version_env.sh"
+oldversion=$(cat version_info)
+echo "new**********" $oldversion
 
 sm_increment() {
   local increment_type=$1
@@ -96,7 +98,7 @@ create_go_version_file() {
   local version_text=$2
   mkPath $1
   cat > $file_path <<EOF
- "$VERSION1"
+  $VERSION1
 EOF
 }
 
