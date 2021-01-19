@@ -3,7 +3,7 @@
 version_input="git"
 version_output="git"
 version_increment_type=""
-version_prefix="v"
+version_prefix="dev-"
 version_file_language="go"
 version_file="./version_info"
 version_message=""
