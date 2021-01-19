@@ -15,11 +15,7 @@
 			<artifactId>spark-core</artifactId>
 			<version>2.7.2</version>
 		</dependency>
-		<dependency>
-  			<groupId>project1</groupId>
-  			<artifactId>sparkjava-hello-world</artifactId>
- 		        <version>v3.0.0</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
