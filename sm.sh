@@ -62,7 +62,7 @@ set_semantic_version_to_git () {
   fi
   git tag -a "${tag_version}" -m "${tag_message}"
   git tag -l
-  git push origin  "${tag_version}
+  git push origin  "${tag_version}"
 }
 
 get_increment_semantic_type_from_git() {
@@ -215,4 +215,3 @@ fi
 
 create_bash_version_file $version_bash_file $VERSION1
 echo $VERSION1
-
