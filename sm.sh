@@ -11,6 +11,10 @@ version_bash_file="./version_env.sh"
 oldversion=$(cat version_info)
 echo "new**********" $oldversion
 
+l_tag=$(git rev-list --tags --max-count=1)
+git_version=$(git describe --tags $l_tag)
+oldversion=$git_version
+
 sm_increment() {
   local increment_type=$1
   local current_version=$( echo $2 | tr -dc '0-9.' )
@@ -217,4 +221,3 @@ fi
 create_bash_version_file $version_bash_file $VERSION1
 echo $VERSION1
 export VERSION1
-
