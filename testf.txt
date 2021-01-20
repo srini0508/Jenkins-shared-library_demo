@@ -1,1 +1,1 @@
-This is a major change and will trigger v6 series.
+This is a major change and will trigger v6.0.3 series.
