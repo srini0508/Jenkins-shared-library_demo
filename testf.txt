@@ -1,2 +1,3 @@
 This is a major change and will trigger v6.0.3 series.
 Testing now 123456
+new artifact
