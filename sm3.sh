@@ -16,26 +16,49 @@ oldversion=$git_version
 
 echo "1. old version is $oldversion"
 
-sm_increment() {
-  local increment_type=$1
-  local current_version=$( echo $oldversion | tr -dc '0-9.' )
-  echo "2. sm_increment_without v $current_version"
-  local version_array=( ${current_version//./ } )
-  case $increment_type in
-    "major" )
-      ((version_array[0]++))
-      version_array[1]=0
-      version_array[2]=0
-      ;;
-    "minor" )
-      ((version_array[1]++))
-      version_array[2]=0
-      ;;
-    "patch" )
-      ((version_array[2]++))
-      ;;
+while getopts ":Mmp" Option
+do
+  case $Option in
+    M ) major=true;;
+    m ) minor=true;;
+    p ) patch=true;;
   esac
+done
 
-  echo "${version_array[0]}.${version_array[1]}.${version_array[2]}"
-}
+shift $(($OPTIND - 1))
+current_version=$( echo $oldversion | tr -dc '0-9.' )
+version=$current_version
 
+# Build array from version string.
+
+a=( ${version//./ } )
+
+# If version string is missing or has the wrong number of members, show usage message.
+
+if [ ${#a[@]} -ne 3 ]
+then
+  echo "usage: $(basename $0) [-Mmp] major.minor.patch"
+  exit 1
+fi
+
+# Increment version numbers as requested.
+
+if [ ! -z $major ]
+then
+  ((a[0]++))
+  a[1]=0
+  a[2]=0
+fi
+
+if [ ! -z $minor ]
+then
+  ((a[1]++))
+  a[2]=0
+fi
+
+if [ ! -z $patch ]
+then
+  ((a[2]++))
+fi
+
+echo "$version_prefix${a[0]}.${a[1]}.${a[2]}"
