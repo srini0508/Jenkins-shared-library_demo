@@ -1,3 +1,4 @@
+def exampleMethod(){
 import hudson.EnvVars;
 import hudson.slaves.EnvironmentVariablesNodeProperty;
 import hudson.slaves.NodeProperty;
@@ -23,4 +24,5 @@ public createGlobalEnvironmentVariables(String key, String value){
         }
         envVars.put(key, value)
         instance.save()
+ }
 }
