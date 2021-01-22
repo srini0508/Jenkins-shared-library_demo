@@ -11,9 +11,6 @@ version_bash_file="./version_env.sh"
 oldversion=$(cat version_info)
 echo "new**********" $oldversion
 
-l_tag=$(git rev-list --tags --max-count=1)
-git_version=$(git describe --tags $l_tag)
-oldversion=$git_version
 
 sm_increment() {
   local increment_type=$1
@@ -169,10 +166,10 @@ echo "Reading current version from $version_input"
 case ${version_input} in
   git )
     old_version=$(get_semantic_version_from_git)
-    old_version=$oldversion
+    echo "ths is xxxx1111xxxx" $old_version
     ;;
 esac
-echo "Current version is $oldversion"
+echo "Current version is $old_version"
 if [ -z "$version_message" ]
 then
   case ${version_input} in
