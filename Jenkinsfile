@@ -1,13 +1,15 @@
 @Library('Jenkins-shared-library_demo')_
 pipeline {
     agent none
+    environment {
+        UTILITY = load pwd() + '/variable.groovy'
+    }
     stages {
         stage ('Example') {
             steps {
-def rootDir = pwd()
-def exampleModule = load "variable.groovy"
-exampleModule.createGlobalEnvironmentVariables('Var1','12345')
+sh "${UTILITY.createGlobalEnvironmentVariables('Var1','12345')}"
             }
+            
         }
 }
 }
