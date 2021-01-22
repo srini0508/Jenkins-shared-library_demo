@@ -12,7 +12,7 @@ pipeline {
                     sh "${UTILITY.createGlobalEnvironmentVariables('Var2',12345)}"
                     sh echo $Var2
             }
-sh "${UTILITY.createGlobalEnvironmentVariables(Var1,12345)}"
+
             }
             
         }
