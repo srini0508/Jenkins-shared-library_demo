@@ -72,5 +72,6 @@ then
   ((a[2]++))
 fi
 echo "HERE IT IS>>>>>>>>>"
-echo "$version_prefix${a[0]}.${a[1]}.${a[2]}"
+echo "$version_prefix${a[0]}.${a[1]}.${a[2]}" > version_info
+echo $(cat version_info)
 
