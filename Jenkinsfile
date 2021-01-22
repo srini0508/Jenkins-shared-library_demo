@@ -1,4 +1,4 @@
-@Library('Jenkins-shared-library_demo')_
+
 node()  {
     stage('Checkout') {
 def rootDir = pwd()
