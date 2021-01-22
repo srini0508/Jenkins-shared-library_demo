@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ('Example') {
             steps {
-sh "${UTILITY.createGlobalEnvironmentVariables('Var1','12345')}"
+sh "${UTILITY.createGlobalEnvironmentVariables(Var1,12345)}"
             }
             
         }
