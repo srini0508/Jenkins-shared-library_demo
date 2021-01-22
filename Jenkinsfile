@@ -1,2 +1,4 @@
 @Library('Jenkins-shared-library_demo')_
-myPipeline(buildNumber:"${BUILD_NUMBER}", branch:"main",url:"https://github.com/srini0508/Jenkins-shared-library_demo")
+
+createGlobalEnvironmentVariables('Var1','$BUILD_NUMBER')
+echo $Var1
