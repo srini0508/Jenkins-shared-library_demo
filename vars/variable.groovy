@@ -1,4 +1,4 @@
-package com.mcnz
+
 
 import hudson.EnvVars;
 import hudson.slaves.EnvironmentVariablesNodeProperty;
