@@ -1,6 +1,6 @@
 @Library('Jenkins-shared-library_demo')_
 pipeline {
-    agent none
+    agent any
     environment {
         UTILITY = load pwd() + '/variable.groovy'
     }
