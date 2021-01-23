@@ -19,7 +19,7 @@ pipeline {
         stage('Example Test') {
            
             steps {
-               echo "MYVAR: ${LS}"
+            
                 echo "${disk_size}"
                 sh 'java -version'
             }
