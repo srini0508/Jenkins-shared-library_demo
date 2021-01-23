@@ -1,3 +1,9 @@
+import hudson.EnvVars;
+import hudson.slaves.EnvironmentVariablesNodeProperty;
+import hudson.slaves.NodeProperty;
+import hudson.slaves.NodePropertyDescriptor;
+import hudson.util.DescribableList;
+import jenkins.model.Jenkins;
 def release_Version='fgdfgsdfgffv bfgfbgfnbfgnf'
 
 def example1() {
