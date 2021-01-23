@@ -1,22 +1,30 @@
-import hudson.slaves.EnvironmentVariablesNodeProperty
-import jenkins.model.Jenkins
-def ex() {
-instance = Jenkins.getInstance()
-globalNodeProperties = instance.getGlobalNodeProperties()
-envVarsNodePropertyList = globalNodeProperties.getAll(EnvironmentVariablesNodeProperty.class)
+import jenkins.*
+import jenkins.model.*
+import hudson.*
+import hudson.model.*
+import hudson.slaves.*
 
-newEnvVarsNodeProperty = null
-envVars = null
+def updateEnvVar() {
+    script {
+    instance = Jenkins.getInstance()
+    globalNodeProperties = instance.getGlobalNodeProperties()
+    envVarsNodePropertyList = globalNodeProperties.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
 
-if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
-  newEnvVarsNodeProperty = new EnvironmentVariablesNodeProperty();
-  globalNodeProperties.add(newEnvVarsNodeProperty)
-  envVars = newEnvVarsNodeProperty.getEnvVars()
-} else {
-  envVars = envVarsNodePropertyList.get(0).getEnvVars()
-}
+    newEnvVarsNodeProperty = null
+    envVars = null
 
-envVars.put("PLANETS_HOMEPAGE_URL", "https://planets.datenkollektiv.de/")
+    if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
+      newEnvVarsNodeProperty = new hudson.slaves.EnvironmentVariablesNodeProperty();
+      globalNodeProperties.add(newEnvVarsNodeProperty);
+      envVars = newEnvVarsNodeProperty.getEnvVars();
+      envVars.put(NEW_VAR, "toto");
+    } else {
+      for (property in envVarsNodePropertyList) {
+        envVars = property.getEnvVars();
+        envVars.put("EXISTING_VAR","tata");
+      }
+    }
 
-instance.save()
+    instance.save()
+    }
 }
