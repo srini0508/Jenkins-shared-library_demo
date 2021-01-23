@@ -19,7 +19,7 @@ pipeline {
         stage('Example Test') {
            
             steps {
-                echo 'Hello, JDK' ${LS}
+                sh "echo ${env.LS} "
                 sh 'java -version'
             }
         }
