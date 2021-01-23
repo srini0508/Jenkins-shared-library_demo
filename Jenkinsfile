@@ -10,8 +10,9 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[url: 'https://github.com/srini0508/Jenkins-shared-library_demo.git']]])
                 echo 'Hello, Maven'
+                script {
                 def LS = "${sh(script:'ls -lah', returnStdout: true).trim()}"
-                
+                }
             }
         }
         stage('Example Test') {
