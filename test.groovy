@@ -29,6 +29,7 @@ if ( nodes.size() != 1 ) {
   Jenkins.getInstance().save()
 
   println("okay")
+    return null
 
 }
     }
