@@ -1,16 +1,20 @@
-def rev = ''
 pipeline {
-
     agent any 
-    {
-        stages{
-   stage('Build') {
-    sh(script: 'variable.groovy')
-    rev = readFile('version_info')
-    sh echo $rev
-  }
-}
+    stages {
+        stage('Example Build') {
+            
+            steps {
+                echo 'Hello, Maven'
+                sh(script: 'build')
+                rev = readFile('result')
+            }
+        }
+        stage('Example Test') {
+           
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
+            }
+        }
     }
 }
-
-
