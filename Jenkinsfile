@@ -35,7 +35,7 @@ pipeline {
               script{
                                
                 def code = load 'variable.groovy'
-                createGlobalEnvironmentVariables('h','y')
+                code.createGlobalEnvironmentVariables('h','y')
               }
               echo "${h}"
                 echo "${disk_size}"
