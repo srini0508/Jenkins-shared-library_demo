@@ -13,6 +13,9 @@ pipeline {
                 def LS = "${sh(script:'cat version_info', returnStdout: true).trim()}"
                     println("disk_size = ${LS}")
                     disk_size = "${LS}"
+                    withEnv(['release_Version=\'"${disk_size}"\'']) {
+    // some block
+}
                 }
             }
         }
@@ -21,6 +24,7 @@ pipeline {
             steps {
             
                 echo "${disk_size}"
+                echo "${release_Version}"
                 sh 'java -version'
             }
         }
