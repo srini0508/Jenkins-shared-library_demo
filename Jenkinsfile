@@ -1,4 +1,8 @@
-def release_Version=''
+def release_Version='fgdfgsdfgffv bfgfbgfnbfgnf'
+def code
+def example1() {
+  println 'Hello from example1'
+}
 pipeline {
     agent any 
     
@@ -22,7 +26,8 @@ pipeline {
         stage('Example Test') {
            
             steps {
-            
+                code = load 'example.groovy'
+                code.example1()
                 echo "${disk_size}"
                 echo "${release_Version}"
                 
