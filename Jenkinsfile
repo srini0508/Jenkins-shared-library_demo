@@ -1,9 +1,5 @@
-import hudson.EnvVars;
-import hudson.slaves.EnvironmentVariablesNodeProperty;
-import hudson.slaves.NodeProperty;
-import hudson.slaves.NodePropertyDescriptor;
-import hudson.util.DescribableList;
-import jenkins.model.Jenkins;
+import hudson.*;
+
 def release_Version='fgdfgsdfgffv bfgfbgfnbfgnf'
 
 def example1() {
@@ -36,7 +32,7 @@ pipeline {
               script{
                                
                 def code = load 'test.groovy'
-                code.generateStage("SimpleTestSuite", "path.to.test", "MachineA", ["SOME_ENV_VAR=\"ENV_VALUE\""])
+                code.generateStage("dff", "path.dfd.test", "dfdf", ["SOMEdfdf_ENV_VAR=\"ENV_dfdfdVALUE\""])
               }
               
                 echo "${disk_size}"
