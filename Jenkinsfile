@@ -24,10 +24,10 @@ pipeline {
             steps {     
                 script {
                     def code = load "test.groovy"
-                    code.updateEnvVar('ssdf','dfcsdf')
-                    echo "ncghcfghgtdgdhfdyt"
                     
-                    echo "${env.ssdf}"
+                   
+                    
+                    echo "${env.EXISTING_VAR}"
                     echo "${disk_size}"
                 }
                
