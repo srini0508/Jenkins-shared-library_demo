@@ -19,7 +19,7 @@ pipeline {
         stage('Example Test') {
            
             steps {
-                sh "echo ${env.LS} "
+               println("disk_size = ${LS}")
                 sh 'java -version'
             }
         }
