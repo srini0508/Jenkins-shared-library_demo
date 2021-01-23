@@ -24,7 +24,8 @@ pipeline {
             steps {     
                 script {
                     def code = load "test.groovy"
-                echo "${disk_size}"
+                    echo "${disk_size}"
+                }
                
                 
                 sh 'java -version'
