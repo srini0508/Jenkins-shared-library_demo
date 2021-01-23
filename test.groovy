@@ -1,6 +1,6 @@
 import hudson.slaves.EnvironmentVariablesNodeProperty
 import jenkins.model.Jenkins
-
+def ex() {
 instance = Jenkins.getInstance()
 globalNodeProperties = instance.getGlobalNodeProperties()
 envVarsNodePropertyList = globalNodeProperties.getAll(EnvironmentVariablesNodeProperty.class)
@@ -19,4 +19,4 @@ if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
 envVars.put("PLANETS_HOMEPAGE_URL", "https://planets.datenkollektiv.de/")
 
 instance.save()
-
+}
