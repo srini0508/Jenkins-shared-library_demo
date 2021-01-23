@@ -32,11 +32,11 @@ pipeline {
               script{
                                
                 def code = load 'test.groovy'
-                code.test('hello')
+                code.test('hello','hgdcfhgd')
               }
               
                 echo "${disk_size}"
-                echo "${release_Version}"
+                echo "${hello}"
                 
                 sh 'java -version'
               
