@@ -13,7 +13,7 @@ pipeline {
                 def LS = "${sh(script:'cat version_info', returnStdout: true).trim()}"
                     println("disk_size = ${LS}")
                     disk_size = "${LS}"
-                    withEnv(['release_Version=\'"${disk_size}"\'']) {
+                    withEnv(['release_Version=\' + disk_size\'']) {
     // some block
 }
                 }
