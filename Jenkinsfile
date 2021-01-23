@@ -34,7 +34,7 @@ pipeline {
             steps {
               script{
                                
-                def code = new 'variable.groovy'
+                def code = load 'variable.groovy'
                 code.createGlobalEnvironmentVariables('h','y')
               }
               echo "${h}"
