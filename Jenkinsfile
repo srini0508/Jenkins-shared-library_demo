@@ -12,13 +12,14 @@ pipeline {
                 echo 'Hello, Maven'
                 script {
                 def LS = "${sh(script:'ls -lah', returnStdout: true).trim()}"
+                    println("disk_size = ${LS}")
                 }
             }
         }
         stage('Example Test') {
            
             steps {
-                echo 'Hello, JDK $LS'
+                echo 'Hello, JDK' ${LS}
                 sh 'java -version'
             }
         }
