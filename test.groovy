@@ -1,17 +1,34 @@
-def generateStage(nameOfTestSet, pathToTestSet, machineLabel, listOfEnvVarDeclarations=[])
-{
-    echo "Generating stage for ${nameOfTestSet} on ${machineLabel}"
-    return node("${machineLabel}") {
-        stage(nameOfTestSet)
-        {
-            withEnv(listOfEnvVarDeclarations) {
-                try {
-                    echo "Would run: "+pathToTestSet
+import jenkins.*
 
-                } finally {
-                    echo "Archive results here"
-                }   
-            }
-        }
-    }
+import jenkins.model.*
+
+import hudson.*
+
+import hudson.model.*
+
+    def test(string key) {
+
+nodes = Jenkins.getInstance().getGlobalNodeProperties()
+
+nodes.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
+
+if ( nodes.size() != 1 ) {
+
+  println("error: unexpected number of environment variable containers: "
+
+          + nodes.size()
+
+          + " expected: 1")
+
+} else {
+
+  envVars= nodes.get(0).getEnvVars()
+
+  envVars.put(key)
+
+  Jenkins.getInstance().save()
+
+  println("okay")
+
 }
+    }
