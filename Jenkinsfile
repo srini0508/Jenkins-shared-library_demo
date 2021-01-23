@@ -1,5 +1,5 @@
 def release_Version='fgdfgsdfgffv bfgfbgfnbfgnf'
-def code
+
 def example1() {
   println 'Hello from example1'
 }
