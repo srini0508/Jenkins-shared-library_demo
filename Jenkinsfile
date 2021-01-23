@@ -24,7 +24,7 @@ pipeline {
             steps {     
                 script {
                     def code = load "test.groovy"
-                    code.ex()
+                    code.updateEnvVar()
                     echo "${disk_size}"
                 }
                
