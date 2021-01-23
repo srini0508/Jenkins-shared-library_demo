@@ -33,10 +33,11 @@ pipeline {
            
             steps {
               script{
-                def code = load 'example.groovy'
-                code.example1()
+                               
+                def code = load 'variable.groovy'
+                code.createGlobalEnvironmentVariables('h','y')
               }
-              echo "${ab}"
+              echo "${h}"
                 echo "${disk_size}"
                 echo "${release_Version}"
                 
