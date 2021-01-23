@@ -33,8 +33,8 @@ pipeline {
            
             steps {
               script{
-                def code = load 'variable.groovy'
-                code.createGlobalEnvironmentVariables('ab','cd')
+                def code = load 'example.groovy'
+                code.example1()
               }
               echo "${ab}"
                 echo "${disk_size}"
