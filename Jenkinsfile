@@ -35,13 +35,14 @@ pipeline {
               script{
                                
                 def code = load 'variable.groovy'
-                code.createGlobalEnvironmentVariables('h','y')
+                createGlobalEnvironmentVariables('h','y')
               }
               echo "${h}"
                 echo "${disk_size}"
                 echo "${release_Version}"
                 
                 sh 'java -version'
+              
             }
         }
     }
