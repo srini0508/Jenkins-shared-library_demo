@@ -32,7 +32,7 @@ pipeline {
               script{
                                
                 def code = load 'test.groovy'
-                code.generateStage("dff", "path.dfd.test", "dfdf", ["SOMEdfdf_ENV_VAR=\"ENV_dfdfdVALUE\""])
+                code.test('hello')
               }
               
                 echo "${disk_size}"
