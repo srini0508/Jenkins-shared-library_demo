@@ -24,6 +24,7 @@ pipeline {
             steps {     
                 script {
                     def code = load "test.groovy"
+                    echo "ncghcfghgtdgdhfdyt"
                     code.updateEnvVar().toString()
                     echo "${EXISTING_VAR}"
                     echo "${disk_size}"
