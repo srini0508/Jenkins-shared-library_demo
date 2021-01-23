@@ -25,6 +25,8 @@ pipeline {
             
                 echo "${disk_size}"
                 echo "${release_Version}"
+                sh "git tag ${disk_size}"
+                sh " git push origin HEAD:main --tags"
                 sh 'java -version'
             }
         }
