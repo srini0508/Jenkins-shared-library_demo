@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo 'Hello, Maven'
                 sh(script: 'build')
-                rev = readFile('result')
+                
             }
         }
         stage('Example Test') {
