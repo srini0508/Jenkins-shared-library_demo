@@ -27,8 +27,6 @@ def updateEnvVar() {
 
     instance.save()
     }
-    return [
-    updateEnvVar: this.&updateEnvVar
     
-]
 }
+return this
