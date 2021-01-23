@@ -12,7 +12,7 @@ pipeline {
                     sh 'sh +x newsm.sh'
                 def LS = "${sh(script:'cat version_info', returnStdout: true).trim()}"
                     println("disk_size = ${LS}")
-                    disk_size = '${LS}'
+                    disk_size = "${LS}"
                 }
             }
         }
