@@ -1,4 +1,4 @@
-def rev=''
+def release_Version=''
 pipeline {
     agent any 
     
