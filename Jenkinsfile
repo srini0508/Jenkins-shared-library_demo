@@ -26,8 +26,10 @@ pipeline {
         stage('Example Test') {
            
             steps {
+              script{
                 def code = load 'variable.groovy'
                 code.createGlobalEnvironmentVariables('ab','cd')
+              }
               echo "${ab}"
                 echo "${disk_size}"
                 echo "${release_Version}"
