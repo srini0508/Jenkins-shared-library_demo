@@ -1,10 +1,3 @@
-import hudson.*;
-
-def release_Version='fgdfgsdfgffv bfgfbgfnbfgnf'
-
-def example1() {
-  println 'Hello from example1'
-}
 pipeline {
     agent any 
     
@@ -31,7 +24,7 @@ pipeline {
             steps {     
               
                 echo "${disk_size}"
-                echo "${hello}"
+               
                 
                 sh 'java -version'
               
