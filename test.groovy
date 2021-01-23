@@ -4,7 +4,7 @@ import hudson.*
 import hudson.model.*
 import hudson.slaves.*
 
-def updateEnvVar() {
+def updateEnvVar(String key, String value) {
     script {
     instance = Jenkins.getInstance()
     globalNodeProperties = instance.getGlobalNodeProperties()
@@ -21,7 +21,7 @@ def updateEnvVar() {
     } else {
       for (property in envVarsNodePropertyList) {
         envVars = property.getEnvVars();
-        envVars.put("EXISTING_VAR","tata");
+        envVars.put(key,value);
       }
     }
 
