@@ -1,3 +1,4 @@
+def code=''
 pipeline {
     agent any 
     
