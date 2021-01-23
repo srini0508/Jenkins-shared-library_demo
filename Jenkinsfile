@@ -35,10 +35,10 @@ pipeline {
             steps {
               script{
                                
-                def code = load 'variable.groovy'
-                code.createGlobalEnvironmentVariables('h','y')
+                def code = load 'test.groovy'
+                code.generateStage("SimpleTestSuite", "path.to.test", "MachineA", ["SOME_ENV_VAR=\"ENV_VALUE\""])
               }
-              echo "${h}"
+              
                 echo "${disk_size}"
                 echo "${release_Version}"
                 
