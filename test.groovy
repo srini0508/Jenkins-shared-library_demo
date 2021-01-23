@@ -1,35 +1,22 @@
-import jenkins.*
+import hudson.slaves.EnvironmentVariablesNodeProperty
+import jenkins.model.Jenkins
 
-import jenkins.model.*
+instance = Jenkins.getInstance()
+globalNodeProperties = instance.getGlobalNodeProperties()
+envVarsNodePropertyList = globalNodeProperties.getAll(EnvironmentVariablesNodeProperty.class)
 
-import hudson.*
+newEnvVarsNodeProperty = null
+envVars = null
 
-import hudson.model.*
-
-    def test(String key, String value) {
-
-nodes = Jenkins.getInstance().getGlobalNodeProperties()
-
-nodes.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
-
-if ( nodes.size() != 1 ) {
-
-  println("error: unexpected number of environment variable containers: "
-
-          + nodes.size()
-
-          + " expected: 1")
-
+if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
+  newEnvVarsNodeProperty = new EnvironmentVariablesNodeProperty();
+  globalNodeProperties.add(newEnvVarsNodeProperty)
+  envVars = newEnvVarsNodeProperty.getEnvVars()
 } else {
-
-  envVars= nodes.get(0).getEnvVars()
-
-  envVars.put(key,value)
-
-  Jenkins.getInstance().save()
-
-  println("okay")
-    return null
-
+  envVars = envVarsNodePropertyList.get(0).getEnvVars()
 }
-    }
+
+envVars.put("PLANETS_HOMEPAGE_URL", "https://planets.datenkollektiv.de/")
+
+instance.save()
+
