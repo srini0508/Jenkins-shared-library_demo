@@ -1,3 +1,4 @@
+def rev=''
 pipeline {
     agent any 
     stages {
