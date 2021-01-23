@@ -26,14 +26,9 @@ pipeline {
                 }
             }
         }
-        stage('Example Test') {
+        stage('Print Env') {
            
-            steps {
-              script{
-                               
-                def code = load 'test.groovy'
-                code.test('hello','hgdcfhgd')
-              }
+            steps {     
               
                 echo "${disk_size}"
                 echo "${hello}"
