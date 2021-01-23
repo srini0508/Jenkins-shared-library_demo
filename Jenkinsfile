@@ -22,7 +22,8 @@ pipeline {
         stage('Print Env') {
            
             steps {     
-              
+                script {
+                    def code = load "test.groovy"
                 echo "${disk_size}"
                
                 
