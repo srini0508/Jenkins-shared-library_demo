@@ -6,7 +6,7 @@ import hudson.*
 
 import hudson.model.*
 
-    def test(string key) {
+    def test(String key, String value) {
 
 nodes = Jenkins.getInstance().getGlobalNodeProperties()
 
@@ -24,7 +24,7 @@ if ( nodes.size() != 1 ) {
 
   envVars= nodes.get(0).getEnvVars()
 
-  envVars.put(key)
+  envVars.put(key,value)
 
   Jenkins.getInstance().save()
 
