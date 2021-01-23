@@ -1,9 +1,7 @@
 def rev=''
 pipeline {
     agent any 
-    environment {
-        LS = ''
-    }
+    
     stages {
         stage('Example Build') {
             
@@ -21,7 +19,8 @@ pipeline {
         stage('Example Test') {
            
             steps {
-               echo "MYVAR: ${env.LS}"
+               echo "MYVAR: ${LS}"
+                echo "${disk_size}"
                 sh 'java -version'
             }
         }
