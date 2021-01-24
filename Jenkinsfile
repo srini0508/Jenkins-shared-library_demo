@@ -20,12 +20,12 @@ pipeline {
         stage('Print Env') {
            
             steps {     
-                script {
-                    def code = load "test.groovy"                                    
+                
+                build job: 'checkvervariable', parameters: [[$class: 'StringParameterValue', name: 'VER', value: new_version]]                                      
                     
                    
                     echo "${new_version}"
-                }
+                
                
                 
                 sh 'java -version'
