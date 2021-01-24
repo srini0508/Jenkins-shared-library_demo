@@ -12,10 +12,8 @@ pipeline {
                     sh 'sh +x newsm.sh'
                 def LS = "${sh(script:'cat version_info', returnStdout: true).trim()}"
                     println("disk_size = ${LS}")
-                    disk_size = "${LS}"
-                    withEnv(['release_Version=' + disk_size]) {
-    // some block
-}
+                    new_version = "${LS}"
+                    
                 }
             }
         }
@@ -23,12 +21,10 @@ pipeline {
            
             steps {     
                 script {
-                    def code = load "test.groovy"
-                    
-                   
+                    def code = load "test.groovy"                                    
                     
                     echo "${env.EXISTING_VAR}"
-                    echo "${disk_size}"
+                    echo "${new_version}"
                 }
                
                 
