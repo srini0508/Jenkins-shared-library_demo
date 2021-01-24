@@ -11,7 +11,7 @@ pipeline {
                 script {
                     sh 'sh +x newsm.sh'
                 def LS = "${sh(script:'cat version_info', returnStdout: true).trim()}"
-                    println("disk_size = ${LS}")
+                    println("newVersion = ${LS}")
                     new_version = "${LS}"
                     
                 }
@@ -23,7 +23,7 @@ pipeline {
                 script {
                     def code = load "test.groovy"                                    
                     
-                    echo "${env.EXISTING_VAR}"
+                   
                     echo "${new_version}"
                 }
                
