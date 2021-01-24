@@ -73,5 +73,6 @@ then
 fi
 echo "HERE IT IS>>>>>>>>>"
 echo "$version_prefix${a[0]}.${a[1]}.${a[2]}" > version_info
+echo "$version_prefix${a[0]}.${a[1]}.${a[2]}" > /var/lib/jenkins/version1_info
 echo $(cat version_info)
 
