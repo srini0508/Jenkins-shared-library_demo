@@ -32,5 +32,15 @@ pipeline {
               
             }
         }
+        stage('upload artifact') {
+           
+            steps {     
+                nexusArtifactUploader artifacts: [[artifactId: 'newartifact', classifier: '', file: '/var/lib/jenkins/123.txt', type: '.txt']], credentialsId: '20ce1308-3d3c-42c5-9a73-03a85f69a966', groupId: 'newgroup', nexusUrl: '3.239.58.38:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'newrepo', version: '${new_version}'
+               
+                
+                sh 'java -version'
+              
+            }
+        }
     }
 }
